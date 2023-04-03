@@ -1,0 +1,10 @@
+name: plm_vpf_predict
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - tensorflow
+  - seaborn
+  - scikit-learn
+prefix: /opt/anaconda3/envs/plm_vpf_predict
