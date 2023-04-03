@@ -11,9 +11,7 @@ Setup:
 	a. CONDA_SUBDIR=osx-64 conda env create -f plm_vpf_embed.yml
 
 2. Create conda environment for predition
-	a. conda create env create -f plm_vpf_predict.yml
-
-3. Run scripts/faa_prediction.sh
+	a. conda env create -f plm_vpf_predict.yml
 
 Test installation:
 1. Run test.sh
