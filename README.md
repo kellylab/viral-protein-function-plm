@@ -16,3 +16,8 @@ Setup:
 Test installation:
 1. Run test.sh
 2. output to test_out/ should match the contents of test/test_out_compare/
+
+Quick predictions:
+-- using the faa_prediction.sh script the embedding and classifier can be run from the command line with the first argument provided being a protein fasta file (e.g. example.faa) and the second argument provided being the name of an output directory (e.g. example_out)<br />
+
+`sh faa_prediction.sh example.faa example_out`
