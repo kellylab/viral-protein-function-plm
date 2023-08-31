@@ -1,5 +1,7 @@
-# viral_protein_function_plm
-Viral protein family functional prediction using protein language models
+# Viral protein function using Protein Language Model
+Viral protein high-level function prediction. Categories are defined by the PHROGs database (https://phrogs.lmge.uca.fr/)
+
+To access the classifier with no-code, use our Google Colab notebook- https://colab.research.google.com/drive/1ZjxgOtWU335fkEXRVyTq5FCWhbVyQEQM?usp=sharing
 
 Notes:<br />
 -- must be run with osx-64 packages for the embedding procedure. (Relevant if using an ARM64 Apple Silicon chip)<br />
