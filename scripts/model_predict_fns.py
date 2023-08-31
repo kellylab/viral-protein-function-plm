@@ -39,7 +39,7 @@ def format_predictions(prediction_vectors: np.ndarray, classes_path: str, faa_pa
 			thresholded = prediction_vectors[i][0:-1] > threshold_vector
 			k = np.where(thresholded)[0]
 			if len(k) < 1:
-				c = 'unknown function'
+				c = 'unknown'
 				score = list(prediction_vectors[i])[-1]
 				protein = faa_identifiers[i]
 				all_proteins.append((protein, c, score))

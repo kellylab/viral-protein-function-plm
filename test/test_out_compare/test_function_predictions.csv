@@ -1,9 +1,9 @@
 protein_id,class_phrog,phog_model_score
->AUR93314.1 DNA methylase [Vibrio phage 1.187.O._10N.286.49.F1],other,0.99514246
->AUR93315.1 DNA modification protein Mom [Vibrio phage 1.187.O._10N.286.49.F1],"DNA, RNA and nucleotide metabolism",0.38675103
->AUR93316.1 hypothetical protein NVP1187O_003 [Vibrio phage 1.187.O._10N.286.49.F1],unknown,0.91172755
->AUR93317.1 hypothetical protein NVP1187O_004 [Vibrio phage 1.187.O._10N.286.49.F1],unknown,0.98223007
->AUR93318.1 hypothetical protein NVP1187O_005 [Vibrio phage 1.187.O._10N.286.49.F1],unknown,0.94744384
->AUR93319.1 hypothetical protein NVP1187O_006 [Vibrio phage 1.187.O._10N.286.49.F1],unknown,0.952683
->AUR93320.1 hypothetical protein NVP1187O_007 [Vibrio phage 1.187.O._10N.286.49.F1],unknown,0.94191706
->AUR93321.1 nicotinamide phosphoribosyl transferase [Vibrio phage 1.187.O._10N.286.49.F1],other,0.6857613
+>AUR93314.1 DNA methylase [Vibrio phage 1.187.O._10N.286.49.F1],other,0.9999739
+>AUR93315.1 DNA modification protein Mom [Vibrio phage 1.187.O._10N.286.49.F1],unknown function,0.42775106
+>AUR93316.1 hypothetical protein NVP1187O_003 [Vibrio phage 1.187.O._10N.286.49.F1],unknown function,0.98542273
+>AUR93317.1 hypothetical protein NVP1187O_004 [Vibrio phage 1.187.O._10N.286.49.F1],unknown function,0.9689483
+>AUR93318.1 hypothetical protein NVP1187O_005 [Vibrio phage 1.187.O._10N.286.49.F1],unknown function,0.99134517
+>AUR93319.1 hypothetical protein NVP1187O_006 [Vibrio phage 1.187.O._10N.286.49.F1],unknown function,0.9752865
+>AUR93320.1 hypothetical protein NVP1187O_007 [Vibrio phage 1.187.O._10N.286.49.F1],unknown function,0.8882783
+>AUR93321.1 nicotinamide phosphoribosyl transferase [Vibrio phage 1.187.O._10N.286.49.F1],other,0.91805226
