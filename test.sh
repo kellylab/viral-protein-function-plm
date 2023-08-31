@@ -8,5 +8,5 @@ python scripts/embed_faa.py -faa test/test.faa -out test_out
 conda deactivate
 
 conda activate plm_vpf_predict
-python scripts/predict_function.py -faa test/test.faa -out test_out --output_predictions --prediction_heatmap --output_embeddings
+python scripts/predict_function.py -faa test/test.faa -out test_out --output_predictions --prediction_heatmap --output_embeddings --efam_calibration_threshold
 conda deactivate
