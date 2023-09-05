@@ -4,19 +4,8 @@ import pandas as pd
 import numpy as np
 import pickle
 
-def get_faa_identifier(path: str) -> List[str]:
-	idents = []
-	with(open(path)) as file:
-		for line in file:
-			line = line.rstrip()
-			if line.startswith('>'):
-				idents.append(line)
-	
-	return idents
-
-def format_predictions(prediction_vectors: np.ndarray, classes_path: str, faa_path: str, calibration_thresholds: dict = None) -> pd.DataFrame:
+def format_predictions(prediction_vectors: np.ndarray, classes_path: str, faa_identifiers: List[str], calibration_thresholds: dict = None) -> pd.DataFrame:
 	classes = pickle.load(open(classes_path, 'rb'))
-	faa_identifiers = get_faa_identifier(path=faa_path)
 	
 	## only return predictions above threshold if calbration_thresholds are provided
 	## if no calibration thresholds provided, prediciton is the highest probability
@@ -51,13 +40,10 @@ def format_predictions(prediction_vectors: np.ndarray, classes_path: str, faa_pa
 					all_proteins.append((protein, c, score))
 	return pd.DataFrame(all_proteins, columns=['protein_id', 'class_phrog', 'phog_model_score'])
 
-def format_model_predict(prediction_vectors: np.ndarray, classes_path: str, faa_path: str) -> pd.DataFrame:
+def format_model_predict(prediction_vectors: np.ndarray, classes_path: str, faa_identifiers: List[str]) -> pd.DataFrame:
 	classes = pickle.load(open(classes_path, 'rb'))
-	faa_identifiers = get_faa_identifier(path=faa_path)
-	
 	return pd.DataFrame(prediction_vectors, columns=classes.classes_, index=faa_identifiers)
 
 def model_predict(model_path: str, embeddings: np.ndarray):
 	model = keras.models.load_model(model_path)
-	
 	return model.predict(embeddings, verbose=0)

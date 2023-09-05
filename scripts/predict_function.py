@@ -46,10 +46,12 @@ def main():
 
 
 	embedding_dict = pickle.load(open('{0}/{1}_embeddings_dict.pkl' ''.format(out_path, faa_file_name), "rb"))
+	identifiers = list(embedding_dict.keys())
+	embedding_vectors = list(embedding_dict.values())
 	print('making predictions')
-	preds = model_predict(model_path=MODEL_PATH, embeddings=np.array(embedding_dict.values()))
+	preds = model_predict(model_path=MODEL_PATH, embeddings=np.array(embedding_vectors))
 	if args.output_predictions:
-		preds_formatted = format_model_predict(prediction_vectors=preds, classes_path=CLASSES_PATH, faa_path=faa_path)
+		preds_formatted = format_model_predict(prediction_vectors=preds, classes_path=CLASSES_PATH, faa_identifiers=identifiers)
 		preds_formatted.to_csv('{0}/{1}_functional_probabilities.csv' ''.format(out_path, faa_file_name))
 
 	if args.prediction_heatmap:
@@ -57,9 +59,9 @@ def main():
 		plt.savefig('{0}/prediction_heatmap.png' ''.format(out_path), dpi=300)
 
 	if args.efam_calibration_threshold:
-		final_preds_formatted = format_predictions(prediction_vectors=preds, classes_path=CLASSES_PATH, faa_path=faa_path, calibration_thresholds=efam_calibration_thresholds)
+		final_preds_formatted = format_predictions(prediction_vectors=preds, classes_path=CLASSES_PATH, faa_identifiers=identifiers, calibration_thresholds=efam_calibration_thresholds)
 	else:
-		final_preds_formatted = format_predictions(prediction_vectors=preds, classes_path=CLASSES_PATH, faa_path=faa_path)
+		final_preds_formatted = format_predictions(prediction_vectors=preds, classes_path=CLASSES_PATH, faa_identifiers=identifiers)
 	
 	final_preds_formatted.to_csv('{0}/{1}_function_predictions.csv' ''.format(out_path, faa_file_name), index=False)
 
