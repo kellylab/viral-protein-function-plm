@@ -13,7 +13,8 @@ def _embed_seqs(transformer: BioTransformers, sequences: List[str], batch_size: 
     
     return vectors
 
-def _get_faa(path: str, max_length: int) -> List[str]:
+def _get_faa(path: str, max_length: int = 0) -> List[str]:
+    idents = []
     seqs = []
     seq = []
 
@@ -21,6 +22,7 @@ def _get_faa(path: str, max_length: int) -> List[str]:
         for line in file:
             line = line.rstrip()
             if line.startswith('>'):
+                idents.append(line)
                 if len(seq) > 0:
                     seqs.append(''.join(seq).replace('-', ''))
                     seq = []
@@ -32,20 +34,24 @@ def _get_faa(path: str, max_length: int) -> List[str]:
     if max_length > 0:
         seqs = [x[0:max_length] for x in seqs]
 
-    return seqs
+    return idents, seqs
 
-def protbert_bfd_embed(faa_path: str, max_length: int, num_gpus: int, batch_size: int) -> np.ndarray:
+def protbert_bfd_embed(faa_path: str, max_length: int, num_gpus: int, batch_size: int) -> dict:
 
-    seqs = _get_faa(faa_path, max_length=max_length)
+    intifiers, sequences = _get_faa(faa_path, max_length=max_length)
     transformer_bfd = BioTransformers(backend='protbert_bfd', num_gpus=num_gpus)
 
-    # if len(seqs) < 1:
-    #     with open(log.output) as f:
-    #         logging.info('{0} had no sequences after converting msa to sequences for input to embedding function.' ''.format(faa))
+    ## batch sequence embedding to reduce memory
+    d = {}
+    sequence_batch = 100
+    
+    for i in range(int(len(sequences)/sequence_batch)):
 
-    s_vectors = _embed_seqs(transformer=transformer_bfd, sequences=seqs, batch_size=batch_size)
+        start = i*sequence_batch
+        end = (i+1)*sequence_batch
 
-    # if len(s_vectors) != len(seqs):
-    #     logging.info('{0} had non-equal len(vectors) and len(sequences).' ''.format(faa))
+        s_vectors = _embed_seqs(transformer=transformer_bfd, sequences=sequences[start:end], batch_size=batch_size)
+        d.update(dict(zip(identifiers[start:end], s_vectors)))
 
-    return s_vectors
+
+    return d

@@ -45,9 +45,9 @@ def main():
 
 
 
-	embedding = pickle.load(open('{0}/{1}_protbert_bfd.pkl' ''.format(out_path, faa_file_name), "rb"))
+	embedding_dict = pickle.load(open('{0}/{1}_embeddings_dict.pkl' ''.format(out_path, faa_file_name), "rb"))
 	print('making predictions')
-	preds = model_predict(model_path=MODEL_PATH, embeddings=embedding)
+	preds = model_predict(model_path=MODEL_PATH, embeddings=np.array(embedding_dict.values()))
 	if args.output_predictions:
 		preds_formatted = format_model_predict(prediction_vectors=preds, classes_path=CLASSES_PATH, faa_path=faa_path)
 		preds_formatted.to_csv('{0}/{1}_functional_probabilities.csv' ''.format(out_path, faa_file_name))
@@ -64,7 +64,7 @@ def main():
 	final_preds_formatted.to_csv('{0}/{1}_function_predictions.csv' ''.format(out_path, faa_file_name), index=False)
 
 	if args.output_embeddings:
-		os.remove('{0}/{1}_protbert_bfd.pkl' ''.format(out_path, faa_file_name))
+		os.remove('{0}/{1}_embeddings_dict.pkl' ''.format(out_path, faa_file_name))
 
 if __name__ == '__main__':
 	main()

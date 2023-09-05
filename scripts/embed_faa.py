@@ -31,7 +31,7 @@ def main():
 	BATCH_SIZE = args.batch_size
 
 	embedding = protbert_bfd_embed(faa_path=faa_path, max_length=MAX_LENGTH, num_gpus=NUM_GPU, batch_size=BATCH_SIZE)
-	pickle.dump(embedding, open('{0}/{1}_protbert_bfd.pkl' ''.format(out_path, faa_file_name), "wb"))
+	pickle.dump(embedding, open('{0}/{1}_embeddings_dict.pkl' ''.format(out_path, faa_file_name), "wb"))
 
 if __name__ == '__main__':
 	main()
