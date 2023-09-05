@@ -45,7 +45,7 @@ def protbert_bfd_embed(faa_path: str, max_length: int, num_gpus: int, batch_size
     d = {}
     sequence_batch = 100
     
-    for i in range(int(len(sequences)/sequence_batch)+1):
+    for i in tqdm(range(int(len(sequences)/sequence_batch)+1), desc="100 sequence batch"):
 
         start = i*sequence_batch
         end = (i+1)*sequence_batch
