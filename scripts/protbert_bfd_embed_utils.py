@@ -38,7 +38,7 @@ def _get_faa(path: str, max_length: int = 0) -> List[str]:
 
 def protbert_bfd_embed(faa_path: str, max_length: int, num_gpus: int, batch_size: int) -> dict:
 
-    intifiers, sequences = _get_faa(faa_path, max_length=max_length)
+    identifiers, sequences = _get_faa(faa_path, max_length=max_length)
     transformer_bfd = BioTransformers(backend='protbert_bfd', num_gpus=num_gpus)
 
     ## batch sequence embedding to reduce memory
