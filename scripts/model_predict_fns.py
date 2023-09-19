@@ -38,7 +38,7 @@ def format_predictions(prediction_vectors: np.ndarray, classes_path: str, faa_id
 					score = list(prediction_vectors[i])[j]
 					protein = faa_identifiers[i]
 					all_proteins.append((protein, c, score))
-	return pd.DataFrame(all_proteins, columns=['protein_id', 'class_phrog', 'phog_model_score'])
+	return pd.DataFrame(all_proteins, columns=['protein_id', 'class_phrog', 'phrog_model_score'])
 
 def format_model_predict(prediction_vectors: np.ndarray, classes_path: str, faa_identifiers: List[str]) -> pd.DataFrame:
 	classes = pickle.load(open(classes_path, 'rb'))
