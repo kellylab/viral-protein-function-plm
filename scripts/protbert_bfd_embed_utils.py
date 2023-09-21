@@ -49,6 +49,9 @@ def protbert_bfd_embed(faa_path: str, max_length: int, num_gpus: int, batch_size
 
         start = i*sequence_batch
         end = (i+1)*sequence_batch
+        ## account for instance when there is no remainder
+        if start == len(sequences):
+            continue
 
         s_vectors = _embed_seqs(transformer=transformer_bfd, sequences=sequences[start:end], batch_size=batch_size)
         d.update(dict(zip(identifiers[start:end], s_vectors)))
