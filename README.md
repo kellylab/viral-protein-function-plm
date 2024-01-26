@@ -1,4 +1,4 @@
-# Viral protein function prediction using Protein Language Model
+# Viral Protein Function prediction using Protein Language Model (VPF-PLM)
 Viral protein high-level function prediction. Categories are defined by the PHROGs database (https://phrogs.lmge.uca.fr/). For more information, please see the preprint assocaited with this project- https://www.researchsquare.com/article/rs-2852098/latest.  
 
 To access the classifier with no-code, use our Google Colab notebook- https://colab.research.google.com/drive/1ZjxgOtWU335fkEXRVyTq5FCWhbVyQEQM?usp=sharing
