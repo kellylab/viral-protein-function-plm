@@ -30,9 +30,7 @@ Notes:
 -- bio-transformers package has a numpy conflict with tensorflow so the faa_prediction.sh script utilizes two separate conda environments.  
 
 Citation:  
-Zachary Flamholz, Steven Biller, and Libusha Kelly. Large language models improve annotation of viral proteins, 02 May 2023, PREPRINT (Version 1). https://doi.org/10.21203/rs.3.rs-2852098/v1
-
-
+Flamholz, Z.N., Biller, S.J. & Kelly, L. Large language models improve annotation of prokaryotic viral proteins. Nat Microbiol (2024). https://doi.org/10.1038/s41564-023-01584-8
 
 [![DOI](https://zenodo.org/badge/619829420.svg)](https://zenodo.org/doi/10.5281/zenodo.10182746)
 
