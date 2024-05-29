@@ -4,8 +4,8 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - python=3.10
-  - tensorflow=2.12.0
-  - seaborn
+  - python=3.10.10
+  - tensorflow=2.11.1
+  - seaborn=0.12.2
   - scikit-learn=1.1.3
 prefix: /opt/anaconda3/envs/plm_vpf_predict
