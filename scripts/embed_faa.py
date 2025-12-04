@@ -2,7 +2,8 @@ import argparse
 import os
 import pickle
 import numpy as np
-from protbert_bfd_embed_utils import protbert_bfd_embed
+#from protbert_bfd_embed_utils import protbert_bfd_embed
+from embed_protbert_bfd import protbert_bfd_embed
 
 def main():
 	parser = argparse.ArgumentParser()
