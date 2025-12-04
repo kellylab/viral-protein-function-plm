@@ -8,12 +8,13 @@ We have tested the installation on multiple Mac, Windows, and Linux systems. If 
 Installation:  
 1. Download codebase
 2. Environment setup using conda (for CPU)
-        conda env create -f plm_vpf_predict_cpu.yml  
+
+           conda env create -f plm_vpf_predict_cpu.yml  
 
 Test installation:
 1. Run test bash script
 
-        bash test.sh
+           bash test.sh
 2. compare output (test_out/) to the contents of test/test_out_compare/  
 
 Make predictions:  
