@@ -7,12 +7,8 @@ We have tested the installation on multiple Mac, Windows, and Linux systems. If 
 
 Installation:  
 1. Download codebase
-2. Environment setup requires conda and there are two environments that need to be setup. This process takes some time.  
-        a. Create conda environmnet for embedding (for Mac users with M-series machine, environment must be created with osx-64 environment on x86_64 architecture due to dependency requirement)   
-        b. Create conda environment for prediction
-
-        conda env create -f plm_vpf_embed.yml  
-        conda env create -f plm_vpf_predict.yml  
+2. Environment setup using conda (for CPU)
+        conda env create -f plm_vpf_predict_cpu.yml  
 
 Test installation:
 1. Run test bash script
@@ -24,10 +20,7 @@ Make predictions:
 using the faa_prediction.sh script the embedding and classifier can be run from the command line with the first argument provided being a protein fasta file (e.g. example.faa) and the second argument provided being the name of an output directory (e.g. example_out)
 
         bash faa_prediction.sh example.faa example_out
-
-Notes:  
--- must be run with osx-64 packages for the embedding procedure. (Relevant if using an ARM64 Apple Silicon chip)  
--- bio-transformers package has a numpy conflict with tensorflow so the faa_prediction.sh script utilizes two separate conda environments.  
+ 
 
 Citation:  
 Flamholz, Z.N., Biller, S.J. & Kelly, L. Large language models improve annotation of prokaryotic viral proteins. Nat Microbiol (2024). https://doi.org/10.1038/s41564-023-01584-8
