@@ -7,9 +7,9 @@ We have tested the installation on multiple Mac, Windows, and Linux systems. If 
 
 Installation:  
 1. Download codebase
-2. Environment setup using conda (for CPU)
+2. Environment setup using conda (for CPU or GPU)
 
-           conda env create -f plm_vpf_predict_cpu.yml  
+           conda env create -f plm_vpf_predict.yml  
 
 Test installation:
 1. Run test bash script
@@ -18,7 +18,7 @@ Test installation:
 2. compare output (test_out/) to the contents of test/test_out_compare/  
 
 Make predictions:  
-using the faa_prediction.sh script the embedding and classifier can be run from the command line with the first argument provided being a protein fasta file (e.g. example.faa) and the second argument provided being the name of an output directory (e.g. example_out)
+using the faa_prediction.sh script the embedding and classifier can be run from the command line with the first argument provided being a protein fasta file (e.g. example.faa) and the second argument provided being the name of an output directory (e.g. example_out). Use the --num_gpus to specify the number of GPUs available, default is 0 which will run in CPU mode.
 
         bash faa_prediction.sh example.faa example_out
  
