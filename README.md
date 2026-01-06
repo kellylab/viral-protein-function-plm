@@ -7,7 +7,7 @@ We have tested the installation on multiple Mac, Windows, and Linux systems. If 
 
 Installation:  
 1. Download codebase
-2. Environment setup using conda (for CPU or GPU)
+2. Environment setup using conda (for CPU or GPU). For MAC ARM users, either install with osx-64 or change to the following package versions: numpy==1.24.3, tensorflow==2.13.0
 
            conda env create -f plm_vpf_predict.yml  
 
